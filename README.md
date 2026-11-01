@@ -56,7 +56,6 @@ of the same name, except `Goldziher/Goldziher` (the profile README), cloned as `
 |------------|-------------|
 | [starmetal](https://github.com/Goldziher/starmetal) | Self-hosted multi-language package registry and registry proxy |
 | [ocr-training](https://github.com/Goldziher/ocr-training) | Private: LSTM model training and optimization for Tesseract OCR |
-| [magius](https://github.com/Goldziher/magius) | Private |
 
 ### Distribution and profile
 

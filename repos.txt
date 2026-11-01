@@ -9,7 +9,6 @@ gitfluff git@github.com:Goldziher/gitfluff.git
 go-utils git@github.com:Goldziher/go-utils.git
 homebrew-tap git@github.com:Goldziher/homebrew-tap.git
 interface-forge git@github.com:Goldziher/interface-forge.git
-magius git@github.com:Goldziher/magius.git
 monomyth git@github.com:Goldziher/monomyth.git
 ocr-training git@github.com:Goldziher/ocr-training.git
 poly git@github.com:Goldziher/poly.git

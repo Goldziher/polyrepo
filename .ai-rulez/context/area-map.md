@@ -25,5 +25,5 @@ Repositories by area:
 - Lint, format and repo hygiene: `poly`, `uncomment`, `gitfluff`, `adrlint`, `skif`, `scythe`, `gh-actions-updater`, `voom`
 - Agent tooling: `ai-rulez`, `basemind`, `prompt-template`
 - Libraries and frameworks: `spikard`, `wirx`, `interface-forge`, `fabricator`, `go-utils`, `monomyth`
-- Services, ML and private projects: `starmetal`, `ocr-training`, `magius`
+- Services, ML and private projects: `starmetal`, `ocr-training`
 - Distribution and profile: `homebrew-tap`, `scoop-bucket`, `profile` (the `Goldziher/Goldziher` profile README)
