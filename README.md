@@ -14,8 +14,8 @@ Both stay in the xberg-io organization and are not cloned here.
 
 ## Repositories
 
-[`repos.txt`](repos.txt) is the source of truth: every non-archived repository under `Goldziher` that is not a fork,
-except this one and the private personal repositories (`taxes`, `apartment-search`). Each is cloned into a directory
+[`repos.txt`](repos.txt) is the source of truth: every non-archived code repository under `Goldziher` that is not a fork,
+except this one; private personal repositories (`taxes`, `apartment-search`, `devscout`) stay out. Each is cloned into a directory
 of the same name, except `Goldziher/Goldziher` (the profile README), cloned as `profile/`.
 
 ### Lint, format and repository hygiene
@@ -56,7 +56,6 @@ of the same name, except `Goldziher/Goldziher` (the profile README), cloned as `
 |------------|-------------|
 | [starmetal](https://github.com/Goldziher/starmetal) | Self-hosted multi-language package registry and registry proxy |
 | [ocr-training](https://github.com/Goldziher/ocr-training) | Private: LSTM model training and optimization for Tesseract OCR |
-| [devscout](https://github.com/Goldziher/devscout) | Private |
 | [magius](https://github.com/Goldziher/magius) | Private |
 
 ### Distribution and profile

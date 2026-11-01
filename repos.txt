@@ -3,7 +3,6 @@
 adrlint git@github.com:Goldziher/adrlint.git
 ai-rulez git@github.com:Goldziher/ai-rulez.git
 basemind git@github.com:Goldziher/basemind.git
-devscout git@github.com:Goldziher/devscout.git
 fabricator git@github.com:Goldziher/fabricator.git
 gh-actions-updater git@github.com:Goldziher/gh-actions-updater.git
 gitfluff git@github.com:Goldziher/gitfluff.git

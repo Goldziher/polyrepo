@@ -5,7 +5,6 @@ exclude = [
   "adrlint/**",
   "ai-rulez/**",
   "basemind/**",
-  "devscout/**",
   "fabricator/**",
   "gh-actions-updater/**",
   "gitfluff/**",
