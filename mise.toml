@@ -1,0 +1,8 @@
+# Every subrepository inherits this file as a parent config, so it declares no [tools]: inherited pins would
+# leak into each subrepository, and mise would rewrite this lockfile to that repository's platforms. Each root
+# task pins the tools it runs with `#MISE tools=`, at the xberg-io/toolchains baseline versions. ~keep
+[settings]
+# mise.lock is gitignored here: a subrepository's `mise install` rewrites a parent lockfile to that
+# repository's lockfile_platforms, so a committed one churns on every setup. Task tools are pinned to
+# baseline versions, except ai-rulez, which always runs at npm latest. ~keep
+lockfile = true

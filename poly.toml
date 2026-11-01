@@ -1,0 +1,102 @@
+
+[discovery]
+exclude = [
+  ".worktrees/**",
+  "adrlint/**",
+  "ai-rulez/**",
+  "basemind/**",
+  "devscout/**",
+  "fabricator/**",
+  "gh-actions-updater/**",
+  "gitfluff/**",
+  "go-utils/**",
+  "homebrew-tap/**",
+  "interface-forge/**",
+  "magius/**",
+  "monomyth/**",
+  "ocr-training/**",
+  "poly/**",
+  "profile/**",
+  "prompt-template/**",
+  "scoop-bucket/**",
+  "scythe/**",
+  "skif/**",
+  "spikard/**",
+  "starmetal/**",
+  "uncomment/**",
+  "voom/**",
+  "wirx/**",
+  ".basemind/**",
+  ".polylint/**",
+  "node_modules/**",
+  "reports/**",
+  "target/**",
+]
+
+[lint.markdown.rumdl]
+disable = ["MD025", "MD012", "MD013", "MD024", "MD033", "MD036", "MD041", "MD046", "MD051", "MD076"]
+
+
+[lint.uncomment]
+enabled = true
+remove_todos = false
+remove_fixme = false
+remove_docs = false
+use_default_ignores = true
+preserve_patterns = [
+  "SAFETY",
+  "HACK",
+  "WORKAROUND",
+  "NOTE",
+  "Copyright",
+  "Licensed",
+  "License",
+  "SPDX",
+  "Apache",
+  "MIT",
+  "WITHOUT WARRANTIES",
+  "limitations under the License",
+  "copyright",
+  "licensed",
+  "license",
+  "apache",
+  "you may not use this file except in compliance",
+  "You may obtain a copy of the License",
+  "you may obtain a copy of the license",
+  "http://www.apache.org/licenses/LICENSE-2.0",
+  "http://www.apache.org/licenses/license-2.0",
+  "Unless required by applicable law",
+  "unless required by applicable law",
+  "distributed under the License",
+  "distributed under the license",
+  "AS IS",
+  "as is",
+  "without warranties",
+  "specific language governing permissions",
+  "limitations under the license",
+]
+# MD025 stays enabled for lint but disabled for fmt: rumdl's autofix for a second
+# level-1 heading demotes every heading that follows it, which silently reparents a
+# whole CHANGELOG under [Unreleased] and breaks release-note extraction. ~keep
+[fmt.markdown.rumdl]
+disable = ["MD012", "MD013", "MD024", "MD033", "MD036", "MD041", "MD046", "MD051", "MD076", "MD025"]
+
+[hooks]
+stages = ["pre-commit"]
+
+[hooks.builtin]
+lint = { enabled = true }
+fmt = { enabled = true }
+file_safety = { enabled = true }
+commit = { stages = ["commit-msg"] }
+
+[[hooks.sources]]
+id = "ai-rulez"
+git = "https://github.com/Goldziher/ai-rulez.git"
+revision = "v5"
+hooks = ["ai-rulez-validate"]
+
+[per-file-ignores]
+# ~keep Poly pipes shell source on stdin, so ShellCheck cannot follow mise-tasks/.lib/polyrepo.sh (SC1091).
+# ~keep The glob is unscoped: a mise-tasks/ prefix does not match on path-scoped runs, which the hooks use.
+"**/*.sh" = ["SC1091"]

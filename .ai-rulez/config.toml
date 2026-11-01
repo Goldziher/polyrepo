@@ -1,0 +1,44 @@
+
+version = "5.0"
+name = 'goldziher'
+description = 'Polyrepo root for the Goldziher GitHub namespace: repository registry, setup tasks and workspace conventions'
+gitignore = false
+presets = ["claude", "codex", "opencode"]
+builtins = [
+  "!agent-delegation",
+  "!git-workflow",
+  "!ai-governance/agent-workflow",
+  "!testing/test-alongside-code",
+  "!testing/tdd-workflow",
+  "default-commands",
+  "!token-efficiency/output-awareness",
+  "!token-efficiency/task-runner",
+  "!ai-governance/explain-reasoning",
+  "!security/least-privilege",
+  "!security/input-validation",
+]
+
+default_layers = ["plugins"]
+compact = true
+
+[[includes]]
+name = 'xberg-core'
+source = 'https://github.com/xberg-io/agent-conventions.git'
+version = "^1"
+path = 'modules/core'
+merge_strategy = 'local-override'
+
+[mcp]
+self_server_command = ["ai-rulez", "mcp"]
+# ~keep Skill discovery only: the full server lists every tool schema at each session start.
+serve_skills = true
+read_only = true
+discover_skills = "repo"
+tools = ["find_skill", "load_skill"]
+
+[lock]
+include_outputs = false
+
+[rules]
+# ~keep Glob-scoped rules stay out of AGENTS.md: rule files for Claude, path-gated skills for Codex.
+scoped_fallback = "skill"

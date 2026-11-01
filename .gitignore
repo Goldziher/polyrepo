@@ -1,0 +1,23 @@
+# Every top-level directory is a nested repository, worktree or local state, except these.
+/*/
+!/.ai-rulez/
+!/.github/
+!/mise-tasks/
+
+/.worktrees/
+/.DS_Store
+/.env
+/AGENTS.md
+/CLAUDE.md
+/.mcp.json
+/opencode.json
+/.ai-rulez/.generated-manifest*.json
+/.ai-rulez/local/
+/.ai-rulez/config.local.*
+/poly.local.toml
+/mise.local.toml
+.rumdl_cache/
+__pycache__/
+
+# Rewritten by every subrepository install; see mise.toml. ~keep
+/mise.lock

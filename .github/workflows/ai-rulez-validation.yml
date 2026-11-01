@@ -1,0 +1,24 @@
+name: AI-Rulez validation
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".ai-rulez/**"
+      - ".gitignore"
+      - ".github/workflows/ai-rulez-validation.yml"
+  pull_request:
+    paths:
+      - ".ai-rulez/**"
+      - ".gitignore"
+      - ".github/workflows/ai-rulez-validation.yml"
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: xberg-io/actions/setup-ai-rulez@v1
+        with:
+          ai-rulez-version: "latest"
+      - uses: xberg-io/actions/validate-ai-rulez@v1
