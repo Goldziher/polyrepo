@@ -12,7 +12,7 @@ x-ai-rulez:
 
 - `repos.txt` — the repos this workspace clones, one `<dir> <remote>` per line; all are under `github.com/Goldziher`
 - `mise.toml` — settings only, no `[tools]` (inherited by every subrepo); `mise-tasks/` — root-only tasks that pin their own tools: `setup:*`,
-  `repos:*`, `worktree:*`, `ai-rulez:*`, `governance:*`, `lint`/`format`; product
+  `repos:*` (`status`, `pull`), `worktree:*`, `ai-rulez:*` (`check`, `update`), `governance:*`, `lint`/`format`; product
   development tasks live in each repository
 - `toolchains.toml` — the `xberg-io/toolchains` baseline the root task pins follow
 - `.ai-rulez/` — governance for this root only; shared modules come from `xberg-io/agent-conventions`
