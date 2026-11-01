@@ -3,12 +3,18 @@
 set -euo pipefail
 source "$MISE_CONFIG_ROOT/mise-tasks/.lib/polyrepo.sh"
 
-# Each clone goes to "<dir>.partial" and is renamed into place only once it completes, so an
-# interrupted run never leaves a directory that a later run would mistake for a clone. ~keep
-partial=""
+# The directory being cloned into. A failed or interrupted clone removes it, so a later run never
+# mistakes it for a clone. ~keep
+cloning=""
+clone_pid=""
 # shellcheck disable=SC2329 # invoked by the EXIT trap
 cleanup() {
-  [ -z "$partial" ] || rm -rf "$partial"
+  # A signal sent only to this script leaves git running; stop it before removing its directory. ~keep
+  if [ -n "$clone_pid" ]; then
+    kill "$clone_pid" 2>/dev/null || true
+    wait "$clone_pid" 2>/dev/null || true
+  fi
+  [ -z "$cloning" ] || rm -rf "$cloning"
 }
 trap cleanup EXIT
 trap 'exit 130' INT TERM
@@ -32,32 +38,39 @@ while read -r dir remote <&3; do
       printf '%-28s already cloned\n' "$dir"
       continue
     fi
-    if [ -n "$(ls -A "$target")" ]; then
+    # An empty directory, or one holding only .git (a clone killed before checkout), is a leftover
+    # with nothing to lose; anything else may hold work, so it is reported and kept. ~keep
+    leftover=$(ls -A "$target")
+    if [ -n "$leftover" ] && [ "$leftover" != .git ]; then
       printf '%-28s exists but is not a complete clone; remove it and re-run\n' "$dir" >&2
       status=1
       continue
     fi
-    rmdir "$target"
+    rm -rf "$target"
   fi
-  partial="$target.partial"
+  cloning="$target"
   cloned=false
   for attempt in $(seq 1 "$attempts"); do
-    rm -rf "$partial"
+    rm -rf "$target"
     printf '%-28s cloning (attempt %d/%d)...\n' "$dir" "$attempt" "$attempts"
     # mise may pipe task output, which silences git's progress; force it so slow clones stay visible. ~keep
-    if git clone --progress "$remote" "$partial" && mv "$partial" "$target"; then
+    git clone --progress "$remote" "$target" &
+    clone_pid=$!
+    if wait "$clone_pid"; then
+      clone_pid=""
       cloned=true
       break
     fi
+    clone_pid=""
     [ "$attempt" -eq "$attempts" ] || sleep $((attempt * 5))
   done
+  cloning=""
   if "$cloned"; then
     printf '%-28s cloned\n' "$dir"
   else
     printf '%-28s clone FAILED (%s)\n' "$dir" "$remote" >&2
+    rm -rf "$target"
     status=1
   fi
-  rm -rf "$partial"
-  partial=""
 done 3<<<"$REGISTRY"
 exit "$status"
