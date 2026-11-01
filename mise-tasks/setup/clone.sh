@@ -21,6 +21,9 @@ is_complete_clone() {
   git -C "$1" rev-parse --verify --quiet HEAD >/dev/null
 }
 
+# A dropped connection aborts a clone midway, so each one is retried from scratch. ~keep
+attempts="${SETUP_CLONE_ATTEMPTS:-3}"
+
 status=0
 while read -r dir remote <&3; do
   target="$POLYREPO_ROOT/$dir"
@@ -37,9 +40,18 @@ while read -r dir remote <&3; do
     rmdir "$target"
   fi
   partial="$target.partial"
-  rm -rf "$partial"
-  printf '%-28s cloning...\n' "$dir"
-  if git clone --quiet "$remote" "$partial" && mv "$partial" "$target"; then
+  cloned=false
+  for attempt in $(seq 1 "$attempts"); do
+    rm -rf "$partial"
+    printf '%-28s cloning (attempt %d/%d)...\n' "$dir" "$attempt" "$attempts"
+    # mise may pipe task output, which silences git's progress; force it so slow clones stay visible. ~keep
+    if git clone --progress "$remote" "$partial" && mv "$partial" "$target"; then
+      cloned=true
+      break
+    fi
+    [ "$attempt" -eq "$attempts" ] || sleep $((attempt * 5))
+  done
+  if "$cloned"; then
     printf '%-28s cloned\n' "$dir"
   else
     printf '%-28s clone FAILED (%s)\n' "$dir" "$remote" >&2
