@@ -22,7 +22,7 @@ of the same name, except `Goldziher/Goldziher` (the profile README), cloned as `
 
 | Repository | Description |
 |------------|-------------|
-| [poly](https://github.com/Goldziher/poly) | Universal zero-dependency linter and formatter: one Rust binary for ~30 languages, git hooks and an MCP server |
+| [polylint](https://github.com/Goldziher/polylint) | Universal polyglot linter and formatter (the `poly` command): one binary and one `poly.toml` for every language, engines downloaded on demand, git hooks and an MCP server |
 | [uncomment](https://github.com/Goldziher/uncomment) | Fast CLI that removes comments from code using tree-sitter grammars |
 | [gitfluff](https://github.com/Goldziher/gitfluff) | Conventional Commits linter with automatic message cleanup |
 | [adrlint](https://github.com/Goldziher/adrlint) | Rust linter and formatter for MADR architecture decision records |
@@ -73,7 +73,7 @@ To add a repository, append `<dir> <remote>` to `repos.txt`, add `<dir>/**` to `
 Prerequisites:
 
 - [mise](https://mise.jdx.dev). Each task in `mise-tasks/` pins the tools it runs with (Node, Python,
-  [Poly](https://github.com/Goldziher/poly), shfmt, ShellCheck, jq) at the toolchains baseline named in
+  [polylint](https://github.com/Goldziher/polylint), shfmt, ShellCheck, jq) at the toolchains baseline named in
   `toolchains.toml`, and mise installs them on first use. `mise.toml` has no `[tools]`, because every subrepository
   inherits it, and the root `mise.lock` is gitignored: every subrepository install rewrites a parent lockfile to its
   own platforms.
