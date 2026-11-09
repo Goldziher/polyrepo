@@ -11,7 +11,7 @@ homebrew-tap git@github.com:Goldziher/homebrew-tap.git
 interface-forge git@github.com:Goldziher/interface-forge.git
 monomyth git@github.com:Goldziher/monomyth.git
 ocr-training git@github.com:Goldziher/ocr-training.git
-poly git@github.com:Goldziher/poly.git
+polylint git@github.com:Goldziher/polylint.git
 profile git@github.com:Goldziher/Goldziher.git
 prompt-template git@github.com:Goldziher/prompt-template.git
 scoop-bucket git@github.com:Goldziher/scoop-bucket.git
