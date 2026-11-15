@@ -19,6 +19,7 @@ scythe git@github.com:Goldziher/scythe.git
 skif git@github.com:Goldziher/skif.git
 spikard git@github.com:Goldziher/spikard.git
 starmetal git@github.com:Goldziher/starmetal.git
+tree-sitter-sql git@github.com:Goldziher/tree-sitter-sql.git
 uncomment git@github.com:Goldziher/uncomment.git
 voom git@github.com:Goldziher/voom.git
 wirx git@github.com:Goldziher/wirx.git
