@@ -15,7 +15,10 @@ while read -r dir _ <&3; do
     ! python3 "$MISE_CONFIG_ROOT/mise-tasks/.lib/hook_preferences.py" "$repo"; then
     printf '%-28s hooks install FAILED (hook preferences)\n' "$dir" >&2
     status=1
-  elif (cd "$repo" && poly hooks install >/dev/null); then
+  # Each repository's hooks are installed by the poly it pins, not the root's: lockfile names and
+  # hook-source handling differ between poly versions. `mise -C` falls back to the root's poly when
+  # the repository pins none. ~keep
+  elif mise -C "$repo" x -- poly hooks install >/dev/null; then
     printf '%-28s hooks installed\n' "$dir"
   else
     printf '%-28s hooks install FAILED\n' "$dir" >&2
