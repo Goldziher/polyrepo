@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # MISE description="Provision machine preferences and install reviewed AI governance hooks in the polyrepo root"
-# MISE tools={python = "3.15.2", "github:Goldziher/poly" = "0.32.1"}
+# MISE tools={python = "3.15.2", "github:polylint/polylint" = "0.32.1"}
 import os
 import pathlib
 import shutil

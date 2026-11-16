@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #MISE description="Install poly git hooks in the polyrepo root and every sub-repository that declares them"
-#MISE tools={python = "3.15.2", "github:Goldziher/poly" = "0.32.1"}
+#MISE tools={python = "3.15.2", "github:polylint/polylint" = "0.32.1"}
 #MISE depends=["governance:hooks:install"]
 set -euo pipefail
 source "$MISE_CONFIG_ROOT/mise-tasks/.lib/polyrepo.sh"

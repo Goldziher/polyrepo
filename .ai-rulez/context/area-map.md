@@ -22,7 +22,8 @@ x-ai-rulez:
 
 Repositories by area:
 
-- Lint, format and repo hygiene: `poly`, `uncomment`, `gitfluff`, `adrlint`, `skif`, `scythe`, `gh-actions-updater`, `voom`
+- Lint, format and repo hygiene: `gitfluff`, `scythe`, `gh-actions-updater`, `voom` (polylint, skif, adrlint and uncomment live in the
+  `polylint` organization and its polyrepo at `../polylint`)
 - Agent tooling: `ai-rulez`, `basemind`, `prompt-template`
 - Libraries and frameworks: `spikard`, `wirx`, `interface-forge`, `fabricator`, `go-utils`, `monomyth`
 - Services, ML and private projects: `starmetal`, `ocr-training`

@@ -2,7 +2,6 @@
 [discovery]
 exclude = [
   ".worktrees/**",
-  "adrlint/**",
   "ai-rulez/**",
   "basemind/**",
   "fabricator/**",
@@ -13,15 +12,12 @@ exclude = [
   "interface-forge/**",
   "monomyth/**",
   "ocr-training/**",
-  "poly/**",
   "profile/**",
   "prompt-template/**",
   "scoop-bucket/**",
   "scythe/**",
-  "skif/**",
   "spikard/**",
   "starmetal/**",
-  "uncomment/**",
   "voom/**",
   "wirx/**",
   ".basemind/**",

@@ -20,13 +20,12 @@ of the same name, except `Goldziher/Goldziher` (the profile README), cloned as `
 
 ### Lint, format and repository hygiene
 
+The polylint tools (polylint, skif, adrlint, uncomment) moved to the [polylint](https://github.com/polylint)
+organization and its own polyrepo, [polylint/polyrepo](https://github.com/polylint/polyrepo).
+
 | Repository | Description |
 |------------|-------------|
-| [polylint](https://github.com/Goldziher/polylint) | Universal polyglot linter and formatter (the `poly` command): one binary and one `poly.toml` for every language, engines downloaded on demand, git hooks and an MCP server |
-| [uncomment](https://github.com/Goldziher/uncomment) | Fast CLI that removes comments from code using tree-sitter grammars |
 | [gitfluff](https://github.com/Goldziher/gitfluff) | Conventional Commits linter with automatic message cleanup |
-| [adrlint](https://github.com/Goldziher/adrlint) | Rust linter and formatter for MADR architecture decision records |
-| [skif](https://github.com/Goldziher/skif) | Opinionated, zero-config linter for TypeScript and JavaScript monorepos |
 | [scythe](https://github.com/Goldziher/scythe) | SQL formatting, linting, security auditing and type-safe code generation for 10 languages |
 | [gh-actions-updater](https://github.com/Goldziher/gh-actions-updater) | CLI and pre-commit hook that updates GitHub Action versions |
 | [voom](https://github.com/Goldziher/voom) | Fast, parallel polyglot build-artifact and cache pruning |
@@ -73,7 +72,7 @@ To add a repository, append `<dir> <remote>` to `repos.txt`, add `<dir>/**` to `
 Prerequisites:
 
 - [mise](https://mise.jdx.dev). Each task in `mise-tasks/` pins the tools it runs with (Node, Python,
-  [polylint](https://github.com/Goldziher/polylint), shfmt, ShellCheck, jq) at the toolchains baseline named in
+  [polylint](https://github.com/polylint/polylint), shfmt, ShellCheck, jq) at the toolchains baseline named in
   `toolchains.toml`, and mise installs them on first use. `mise.toml` has no `[tools]`, because every subrepository
   inherits it, and the root `mise.lock` is gitignored: every subrepository install rewrites a parent lockfile to its
   own platforms.
@@ -139,7 +138,7 @@ Development tasks for a project live in that repository: `mise -C <repo> tasks`.
 ```text
 .                            63 outputs: 60 ignored, 3 tracked
 gitfluff                     83 outputs: 62 ignored, 21 tracked
-uncomment                    83 outputs: 78 ignored, 4 tracked, 1 NEITHER: AGENTS.md
+scythe                       83 outputs: 78 ignored, 4 tracked, 1 NEITHER: AGENTS.md
 ```
 
 Tracked outputs are committed on purpose: the `.ai-rulez/**/index.md` files, and whatever a repository lists in

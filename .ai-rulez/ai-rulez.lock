@@ -2,9 +2,9 @@
 # Refresh it with `ai-rulez lock`; `ai-rulez generate --locked` fails when it is stale.
 
 version = 1
-ai_rulez_version = '5.10.0'
+ai_rulez_version = '5.13.2'
 scope = 'all'
-tree = 'sha256:ec5a4e6051c0ed8963e71ece329a84c3b1addb255066364c25331a5383f38b83'
+tree = 'sha256:3bb22b3e07a5ccdf14c6f0a28ae0d67a31fa4a6957905e62adbd9da183028a69'
 
 [[include]]
 name = 'xberg-core'
@@ -146,10 +146,10 @@ digest = 'sha256:517c67f45363ed00d4a5ff0b04b8271cb48e0771d2c11b374dec0fad11f403e
 kind = 'context'
 id = 'area-map'
 path = 'context/area-map.md'
-digest = 'sha256:18cc1f714032ab0e42c0ba3003d97490fdbad56a3685792ba7a7439df9fbae9d'
+digest = 'sha256:ae9b76f95e3d45a17a5a70e4870ff728ff908dd3e803e2367708a24f39bc37dd'
 
 [[item]]
 kind = 'rule'
 id = 'polyrepo-development'
 path = 'rules/polyrepo-development.md'
-digest = 'sha256:1fb56b4f21491b35417bc5143c163d99e68a4e636462f6d1d1a0e5e4e9045b58'
+digest = 'sha256:ae5bfece02a3207c03a5a6d2b2b0d10252cb63e825a2fbc7342d19433df59354'

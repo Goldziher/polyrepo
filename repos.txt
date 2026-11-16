@@ -1,6 +1,5 @@
 # Every repository this workspace manages, one per line: <directory> <remote>.
 # The directory is relative to the polyrepo root. The mise tasks in mise-tasks/ read this file.
-adrlint git@github.com:Goldziher/adrlint.git
 ai-rulez git@github.com:Goldziher/ai-rulez.git
 basemind git@github.com:Goldziher/basemind.git
 fabricator git@github.com:Goldziher/fabricator.git
@@ -11,15 +10,12 @@ homebrew-tap git@github.com:Goldziher/homebrew-tap.git
 interface-forge git@github.com:Goldziher/interface-forge.git
 monomyth git@github.com:Goldziher/monomyth.git
 ocr-training git@github.com:Goldziher/ocr-training.git
-polylint git@github.com:Goldziher/polylint.git
 profile git@github.com:Goldziher/Goldziher.git
 prompt-template git@github.com:Goldziher/prompt-template.git
 scoop-bucket git@github.com:Goldziher/scoop-bucket.git
 scythe git@github.com:Goldziher/scythe.git
-skif git@github.com:Goldziher/skif.git
 spikard git@github.com:Goldziher/spikard.git
 starmetal git@github.com:Goldziher/starmetal.git
 tree-sitter-sql git@github.com:Goldziher/tree-sitter-sql.git
-uncomment git@github.com:Goldziher/uncomment.git
 voom git@github.com:Goldziher/voom.git
 wirx git@github.com:Goldziher/wirx.git
